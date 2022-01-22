@@ -30,6 +30,7 @@
     <script src="{{ asset('src') }}/dist/js/app-style-switcher.js"></script>
     <script src="{{ asset('src') }}/dist/js/feather.min.js"></script>
     <script src="{{ asset('src') }}/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="{{ asset('src') }}/assets/extra-libs/sparkline/sparkline.js"></script>
     <script src="{{ asset('src') }}/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="{{ asset('src') }}/dist/js/custom.min.js"></script>
@@ -41,6 +42,16 @@
     <script src="{{ asset('src') }}/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="{{ asset('src') }}/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js"></script>
     <script src="{{ asset('src') }}/dist/js/pages/dashboards/dashboard1.min.js"></script>
+
+    <!--This page plugins -->
+    <script src="{{ asset('src') }}/assets/extra-libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('src') }}/dist/js/pages/datatable/datatable-basic.init.js"></script>
+    
+    <!-- Card Page JS -->
+    <script src="{{ asset('src') }}/assets/extra-libs/prism/prism.js"></script>
+
+    {{-- alert sweet --}}
+    <script src="{{ asset('assets') }}js/sweetalert.min.js"></script>
 
     @stack('script')
 </body>

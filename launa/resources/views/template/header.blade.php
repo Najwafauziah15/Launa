@@ -18,8 +18,15 @@
     <link href="{{ asset('src') }}/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="{{ asset('src') }}/dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- admin lte -->    
+    <link rel="stylesheet" href="{{ asset('assets') }}/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('assets') }}/dist/css/adminlte.min.css">
+    <!-- This page plugin CSS -->
+    <link href="{{ asset('src') }}/assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    {{-- DataTable --}}
+    <link rel="stylesheet" href="{{ asset('assets') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ asset('assets') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -126,16 +133,17 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+                            @auth
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <img src="{{ asset('src') }}/assets/images/najwa.jpg" alt="user" class="rounded-circle"
                                     width="40">
                                 <span class="ml-2 d-none d-lg-inline-block"><span>Hello,</span> <span
-                                        class="text-dark">Najwa Fauziah</span> <i data-feather="chevron-down"
+                                        class="text-dark"> {{ auth()->user()->name }} </span> <i data-feather="chevron-down"
                                         class="svg-icon"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="user"
+                                <a class="dropdown-item" href="/profil"><i data-feather="user"
                                         class="svg-icon mr-2 ml-1"></i>
                                     My Profile</a>
                                 <div class="dropdown-divider"></div>
@@ -143,10 +151,13 @@
                                         class="svg-icon mr-2 ml-1"></i>
                                     Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i data-feather="power"
-                                        class="svg-icon mr-2 ml-1"></i>
-                                    Logout</a>
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item"><i data-feather="power"
+                                        class="svg-icon mr-2 ml-1"></i>Logout</button>
+                                </form>
                             </div>
+                            @endauth                            
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -185,13 +196,21 @@
                                 aria-expanded="false"><i class="icon-user"></i><span
                                     class="hide-menu">Pengguna</span></a></li>
                         <li class="list-divider"></li>
-                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
+                        <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>                        
+                        @auth
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/transaksi"
+                            aria-expanded="false"><i class="icon-wallet"></i><span
+                                class="hide-menu">Transaksi</span></a>
+                        </li> 
+                        @else
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/login"
+                            aria-expanded="false"><i class="icon-login"></i><span
+                                class="hide-menu">Login</span></a>
+                        </li>  
+                        @endauth
                         <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/laporan"
-                                aria-expanded="false"><i data-feather="edit-3" class="feather-icon"></i><span
-                                    class="hide-menu">Laporan</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="/logout"
-                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
-                                    class="hide-menu">Logout</span></a></li>
+                            aria-expanded="false"><i class="icon-notebook"></i><span
+                                class="hide-menu">Laporan</span></a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

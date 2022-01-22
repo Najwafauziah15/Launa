@@ -15,9 +15,9 @@ class CreateTransaksiTable extends Migration
     {
         Schema::create('transaksi', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_outlet');
+            $table->foreignId('id_outlet')->constrained('outlet')->onDelete('cascade')->onUpdate('cascade');
             $table->string('kode_invoice');
-            $table->integer('id_member');
+            $table->foreignId('id_member')->constrained('member')->onDelete('cascade')->onUpdate('cascade');
             $table->dateTime('tgl');
             $table->dateTime('batas_waktu');
             $table->dateTime('tgl_bayar');
@@ -26,7 +26,7 @@ class CreateTransaksiTable extends Migration
             $table->integer('pajak');
             $table->enum('status',['baru','proses','selesai','diambil']);
             $table->enum('dibayar',['dibayar','belum_dibayar']);
-            $table->integer('id_user');
+            $table->foreignId('id_user')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -15,13 +15,15 @@ class CreateDetailTransaksiTable extends Migration
     {
         Schema::create('detail_transaksi', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_transaksi');
-            $table->integer('id_paket');
+            $table->foreignId('id_transaksi')->constrained('transaksi')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_paket')->constrained('paket')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('qty');
             $table->text('keterangan');
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.

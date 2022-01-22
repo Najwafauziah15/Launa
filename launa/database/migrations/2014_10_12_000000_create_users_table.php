@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->timestamp('username_verified_at')->nullable();
             $table->string('password');
-            $table->integer('id_outlet');
+            $table->foreignId('id_outlet')->constrained('outlet');
             $table->enum('role', ['admin','kasir','owner']);
             $table->rememberToken();
             $table->timestamps();
