@@ -11,7 +11,9 @@ use App\Http\Controllers\TransaksiController;
 
 // Home
 Route::get('/home', [HomeController::class, 'index']);
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('role');
+Route::get('/homeOwner', [HomeController::class, 'index3'])->name('homeOwner');
+Route::get('/homeKasir', [HomeController::class, 'index2'])->name('homeKasir');
 
 // Outlet
 Route::resource('outlet', OutletController::class)->middleware('auth');

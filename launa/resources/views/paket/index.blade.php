@@ -51,11 +51,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive" style="padding-top:0px ">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <table id="zero_config" class="table table-striped table-bordered no-wrap mt--4">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>ID Outlet</th>
+                                                <th>Nama Outlet</th>
                                                 <th>Jenis</th>
                                                 <th>Nama Paket</th>
                                                 <th>Harga</th>
@@ -66,7 +66,7 @@
                                             @foreach ($paket as $pk)
                                             <tr>
                                                 <td>{{ $i=(isset($i)?++$i:$i=1) }}</td>
-                                                <td>{{ $pk->id_outlet }}</td>
+                                                <td>{{ $pk->outlet->nama }}</td>
                                                 <td>{{ $pk->jenis }}</td>
                                                 <td>{{ $pk->nama_paket }}</td> 
                                                 <td>{{ $pk->harga }}</td> 

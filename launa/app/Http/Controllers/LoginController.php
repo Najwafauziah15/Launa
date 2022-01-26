@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\ElseIf_;
 
 class LoginController extends Controller
 {
     public function index () {
         return view('login.index');
+    }
+
+    public function index2 () {
+        return view('owner.login.index');
     }
 
     public function authenticate(Request $request) {
@@ -19,8 +24,18 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/');
+            if(auth()->user()->role == 'admin'){
+                $request->session()->regenerate();
+                return redirect()->intended('/');
+            }
+            elseif(auth()->user()->role == 'kasir'){
+                $request->session()->regenerate();
+                return redirect()->intended('/homeKasir');
+            }
+            elseif(auth()->user()->role == 'owner'){
+                $request->session()->regenerate();
+                return redirect()->intended('/homeOwner');
+            }
         }
 
         return back()->with('loginError', 'Login Failed!!');

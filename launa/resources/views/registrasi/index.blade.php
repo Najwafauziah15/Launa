@@ -91,7 +91,7 @@
                                             <option>Masuk Sebagai</option>
                                             <option name="role" value="admin">Administrator</option>
                                             <option name="role" value="kasir">Kasir</option>
-                                            <option name="role" value="owner">Owner Cover</option>
+                                            <option name="role" value="owner">Owner</option>
                                             </select>
                                     </div>
                                 </div>
