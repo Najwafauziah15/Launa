@@ -1,5 +1,5 @@
 @extends('template.header', ['title'=>'LAUNA'])
-
+ 
 @section('content')
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">OUTLET</h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">DATA USER</h3>
                     </div>
                 </div>
                 <div class="row">
@@ -51,45 +51,42 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive" style="padding-top:0px ">
-                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                    <table id="zero_config" class="table table-striped table-bordered no-wrap mt--4">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>No.Telepon</th>
+                                                <th>Username</th>
+                                                <th>Password</th>
+                                                <th>ID Outlet</th>
+                                                <th>Role</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($outlet as $o)
+                                            @foreach ($user as $u)
                                             <tr>
                                                 <td>{{ $i=(isset($i)?++$i:$i=1) }}</td>
-                                                <td>{{ $o->nama }}</td>
-                                                <td>{{ $o->alamat }}</td>
-                                                <td>{{ $o->tlp }}</td> 
+                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $u->username }}</td>
+                                                <td>{{ $u->password }}</td> 
+                                                <td>{{ $u->id_outlet }}</td> 
+                                                <td>{{ $u->role }}</td> 
                                                 <td> 
                                                     {{-- delete --}}
-                                                    @if ($o->canDelete())
-                                                    <form action="{{ url($o->id. '/outlet/delete')}}" method="POST">
+                                                    <form action="{{ url($u->id. '/user/delete')}}" method="POST">
                                                         @csrf
                                                         @method("delete")
                                                         <button type="submit" class="btn btn-outline-danger" onclick="return confirm('apakah data mau dihapus')">hapus</button>
                                                     </form>
-                                                    @else
-                                                    <div class="">
-                                                    {{-- delete --}}
-                                                    <button type="submit" class="btn btn-outline-secondary" disabled>hapus</button>
-                                                    </div>
-                                                    @endif
                                                     {{-- <form action="{{ url($b->id. '/barang/edit')}}" method="GET"> --}}
-                                                    <button type="submit" class="btn btn-outline-success mt-1" data-toggle="modal" data-target="#formEditModal{{ $o->id }}">
+                                                    <button type="submit" class="btn btn-outline-success mt-1" data-toggle="modal" data-target="#formEditModal{{ $u->id }}">
                                                         Edit
                                                     </button>
                                                     {{-- </form> --}}
                                                 </td>
                                             </tr>
-                                            @include('outlet.edit')
+                                            @include('user.edit')
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -102,5 +99,5 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-@include('outlet.form')
+@include('user.form')
 @endsection

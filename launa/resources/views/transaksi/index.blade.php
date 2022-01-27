@@ -1,4 +1,4 @@
-@extends('template.header')
+@extends('template.header', ['title'=>'ANMART'])
 
 @section('content')
 
@@ -6,7 +6,7 @@
     <div class="right_col" role="main">
     <!-- top tiles -->
        <div class="row" style="display: inline-block;" >
-       <h1>TABEL PEMBELIAN</h1>
+       <h1>TABEL TRANSAKSI</h1>
         </div>
     <!-- /top tiles -->
     <!--main content-->
@@ -16,10 +16,10 @@
                 {{-- card --}}
                 <div class="card">
                     <div class="card-header">
-                        Pembelian
+                        Pembayaran
                     </div>
                     <div class="card-content">
-                        @include('operator.pembelian.form')
+                        @include('transaksi.form')
                     </div>
                     <div class="card-footer">
                         <div style="margin-top:20px">

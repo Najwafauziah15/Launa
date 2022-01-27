@@ -17,9 +17,9 @@
                                     <div id="method"></div>
                                     <div class="card-body">
                                         <input type="hidden" id="id" name="id">
-                                        <div class="form-group mb-3">
+                                        <div class="form-group mb3">
                                             <label for="id_outlet" class="form-label">ID Outlet</label>
-                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="Produk" name="id_outlet">
+                                            <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" id="id_outlet" name="id_outlet">
                                                 <option selected>Pilih Outlet</option>
                                                 @foreach ($outlet as $o )
                                                 <option value="{{ $o->id }}">{{ $o->nama }}</option>
@@ -28,7 +28,7 @@
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="jenis" class="form-label">Jenis</label>
-                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="jenis" name="jenis">
+                                            <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" id="jenis" name="jenis">
                                             <option>Pilih Jenis</option>
                                             <option name="jenis" value="kiloan">Kiloan</option>
                                             <option name="jenis" value="selimut">Selimut</option>

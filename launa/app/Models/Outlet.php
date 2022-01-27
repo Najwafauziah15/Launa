@@ -14,8 +14,13 @@ class Outlet extends Model
     protected $table = 'outlet';
     protected $fillable = ['nama', 'alamat', 'tlp'];
 
-    // public function produk(){
-    //     return $this->hasOne(Produk::class,'id', 'produk_id');
-    // }
-    
+    public function Paket(){
+        return $this->hasMany(Paket::class,'id_outlet');
+    }
+    public function User(){
+        return $this->hasMany(User::class,'id_outlet');
+    }
+    public function canDelete(){
+        return !$this->Paket()->exists();
+    }
 }

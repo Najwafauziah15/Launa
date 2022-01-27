@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">DATA PENGGUNA</h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">DATA MEMBER</h3>
                     </div>
                 </div>
                 <div class="row">

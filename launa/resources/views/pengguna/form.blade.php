@@ -7,7 +7,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header modal-colored-header bg-info">
-                                <h4 class="modal-title" id="info-header-modalLabel">Tambah Data Pengguna</h4>
+                                <h4 class="modal-title" id="info-header-modalLabel">Tambah Data Member</h4>
                                 <button type="button" class="close" data-dismiss="modal"
                                     aria-hidden="true">×</button>
                             </div>
@@ -28,7 +28,7 @@
                                         <div class="input-group mb-3">
                                             <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                             <div class="input-group m-1">
-                                                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="jenis_kelamin" name="jenis_kelamin">
+                                                <select class="form-control form-select-lg mb-3" aria-label=".form-select-lg example" id="jenis_kelamin" name="jenis_kelamin">
                                                 <option>Pilih Jenis Kelamin</option>
                                                 <option name="jenis_kelamin" value="L">Laki-Laki</option>
                                                 <option name="jenis_kelamin" value="P">Perempuan</option>
